@@ -21,12 +21,12 @@ EOT
     location              = string
     timezone              = string
     virtual_machine_id    = string
-    enabled               = optional(bool, true)
+    enabled               = optional(bool) # Default: true
     tags                  = optional(map(string))
     notification_settings = object({
       email           = optional(string)
       enabled         = bool
-      time_in_minutes = optional(number, 30)
+      time_in_minutes = optional(number) # Default: 30
       webhook_url     = optional(string)
     })
   }))
