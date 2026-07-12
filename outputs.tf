@@ -1,3 +1,7 @@
+output "dev_test_global_vm_shutdown_schedules_id" {
+  description = "Map of id values across all dev_test_global_vm_shutdown_schedules, keyed the same as var.dev_test_global_vm_shutdown_schedules"
+  value       = { for k, v in azurerm_dev_test_global_vm_shutdown_schedule.dev_test_global_vm_shutdown_schedules : k => v.id }
+}
 output "dev_test_global_vm_shutdown_schedules_daily_recurrence_time" {
   description = "Map of daily_recurrence_time values across all dev_test_global_vm_shutdown_schedules, keyed the same as var.dev_test_global_vm_shutdown_schedules"
   value       = { for k, v in azurerm_dev_test_global_vm_shutdown_schedule.dev_test_global_vm_shutdown_schedules : k => v.daily_recurrence_time }
