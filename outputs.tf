@@ -16,7 +16,7 @@ output "dev_test_global_vm_shutdown_schedules_location" {
 }
 output "dev_test_global_vm_shutdown_schedules_notification_settings" {
   description = "Map of notification_settings values across all dev_test_global_vm_shutdown_schedules, keyed the same as var.dev_test_global_vm_shutdown_schedules"
-  value       = { for k, v in azurerm_dev_test_global_vm_shutdown_schedule.dev_test_global_vm_shutdown_schedules : k => v.notification_settings if v.notification_settings != null && length(v.notification_settings) > 0 }
+  value       = { for k, v in azurerm_dev_test_global_vm_shutdown_schedule.dev_test_global_vm_shutdown_schedules : k => one(v.notification_settings) if v.notification_settings != null && length(v.notification_settings) > 0 }
 }
 output "dev_test_global_vm_shutdown_schedules_tags" {
   description = "Map of tags values across all dev_test_global_vm_shutdown_schedules, keyed the same as var.dev_test_global_vm_shutdown_schedules"
